@@ -5,7 +5,21 @@ export default {
     "./src/**/*.{ts,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customBlue: '#5BE4EC',
+        customGreen: '#43D79E',
+        teritory: '#35C0E4',
+        textColor:"#1C1C1C",
+        backGround:"#ECF1F3",
+        headingColor:"#FFF9E4",
+        customGray: {
+          light: '#D1D5DB',
+          DEFAULT: '#6B7280',
+          dark: '#374151',
+        },
+      },
+    },
   },
   plugins: [],
 }

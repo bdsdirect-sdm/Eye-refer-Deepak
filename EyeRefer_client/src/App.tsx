@@ -1,14 +1,14 @@
-
-import './App.css'
+import {Route, Routes} from 'react-router-dom'
+import Form from './Pages/Form'
 
 function App() {
 
   return (
-    <>
-      <div className=' text-3xl font-semibold border-b-2 border-blue-500 py-2'>
-        Deepak sharma
-      </div>
-    </>
+    <div>
+      <Routes>
+        <Route path="/" element={<Form/>} />
+      </Routes>
+    </div>
   )
 } 
 
