@@ -1,7 +1,6 @@
-import { AllowNull, PrimaryKey } from "sequelize-typescript";
+
 import sequelize from "../config/dbconnect";
 import { Model,  DataTypes } from "sequelize";
-import Doctor from "./DoctorModel";
 
 class Patient extends Model{
     public DOB!: Date;
@@ -97,7 +96,7 @@ Patient.init({
     doctorId:{
         type:DataTypes.INTEGER,
         references:{
-            model:Doctor,
+            model:"doctors",
             key:"id"
         },
         onDelete:"CASCADE",
@@ -106,7 +105,8 @@ Patient.init({
 },
 {
     sequelize,
-    tableName:"Patients"
+    tableName:"Patients",
+    modelName:"Patient"
 })
 
 export default Patient;

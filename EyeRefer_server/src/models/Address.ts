@@ -1,7 +1,6 @@
-import { truncate } from "fs";
+import db from "./index"
 import sequelize from "../config/dbconnect";
 import { Model, DataTypes } from "sequelize";
-import Doctor from "./DoctorModel";
 
 class Address extends Model{
     public addressTitle!: string;
@@ -58,7 +57,7 @@ Address.init({
         type:DataTypes.NUMBER,
         allowNull:false,
         references:{
-            model:Doctor,
+            model:"doctors",
             key:"id"
         },
         onDelete:'CASCADE',
@@ -67,7 +66,8 @@ Address.init({
     }
 },{
     sequelize,
-    tableName:"addresses"
+    tableName:"addresses",
+    modelName:"Address"
 })
 
 export default  Address;

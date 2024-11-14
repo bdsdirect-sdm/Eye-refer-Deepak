@@ -25,5 +25,9 @@ Otp.init({
 {
     sequelize,
     tableName:"otps",
+    modelName:"Otp",
     timestamps:true    
 })
+
+
+export default Otp;

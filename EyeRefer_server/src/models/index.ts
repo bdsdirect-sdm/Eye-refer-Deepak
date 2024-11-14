@@ -1,25 +1,24 @@
+import { Sequelize, DataTypes, Model } from "sequelize";
+import sequelize from "../config/dbconnect";
 
-import fs from "fs"
-import path from "path";
-
-const basename = "index.ts"
+import Doctor from "./Doctor";
+import Patient from "./Patient";
+import Otp from "./Otp";
+import Address from "./Address";
 
 interface DB{
     [key:string]:any
 }
-
-var db:DB = {};
-
-fs.readdirSync(__dirname)
-.filter(file =>{
-    return(
-        file.indexOf(".") !== 0 && file !==  basename && file.endsWith(".ts")
-    )
-})
-.forEach(file => {
-    const model = import(path.join(__dirname,file));
-    db[file.slice(0,-3)] = model;
-})
+const  db:DB = {
+    Doctor:  Doctor,  
+    Patient: Patient,
+    Address:  Address,
+    Otp:  Otp,
+    sequelize:sequelize,
+    Sequelize:Sequelize,
+    DataTypes:DataTypes,
+    Model:Model
+};
 
 
-export default  db;
+export default db;
