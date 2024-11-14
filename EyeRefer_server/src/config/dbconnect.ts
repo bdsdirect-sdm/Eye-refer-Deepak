@@ -9,7 +9,7 @@ export const dbconnect = () =>{
     sequelize.sync({alter:true}).then(()=>{
         console.log("database connected and syncronized successfully")
     }).catch((err) =>{
-        console.log(err);
+        console.log(err)
         console.log("problem in connecting database")
     })
 }

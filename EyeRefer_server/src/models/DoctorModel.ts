@@ -1,7 +1,7 @@
 import sequelize from "../config/dbconnect";
 import { Model, DataTypes } from "sequelize";
 import Address from "./Address";
-import ReferralPatient from "./ReferralPatient";
+import ReferralPatient from "./Patient";
 
 class Doctor  extends Model {
     public id!:number;
@@ -9,10 +9,11 @@ class Doctor  extends Model {
     public lname!:string;
     public doctorType!: "OD" |  "MD";
     public email! : string;
+    public active!:boolean;
     public password!:string;
     public gender?: "Male"|  "Female" | "Other";
     public phoneNo?:string;
-    public profileImage?:string
+    public profileImage?:string;
 }
 
 Doctor.init({
@@ -56,6 +57,10 @@ Doctor.init({
     profileImage:{
         type:DataTypes.STRING,
         allowNull:true
+    },
+    active:{
+        type:DataTypes.BOOLEAN,
+        defaultValue:false
     }
 },{
     sequelize,

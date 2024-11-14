@@ -3,7 +3,7 @@ import sequelize from "../config/dbconnect";
 import { Model,  DataTypes } from "sequelize";
 import Doctor from "./DoctorModel";
 
-class ReferralPatient extends Model{
+class Patient extends Model{
     public DOB!: Date;
     public email!:string;
     public phoneNo!:string;
@@ -23,7 +23,7 @@ class ReferralPatient extends Model{
     public doctorId!:number;
 }
 
-ReferralPatient.init({
+Patient.init({
     id:{
         type:DataTypes.INTEGER,
         autoIncrement:true,
@@ -106,7 +106,7 @@ ReferralPatient.init({
 },
 {
     sequelize,
-    tableName:"referralPatients"
+    tableName:"Patients"
 })
 
-export default ReferralPatient;
+export default Patient;
