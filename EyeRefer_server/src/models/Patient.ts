@@ -1,9 +1,8 @@
-import { AllowNull, PrimaryKey } from "sequelize-typescript";
+
 import sequelize from "../config/dbconnect";
 import { Model,  DataTypes } from "sequelize";
-import Doctor from "./DoctorModel";
 
-class ReferralPatient extends Model{
+class Patient extends Model{
     public DOB!: Date;
     public email!:string;
     public phoneNo!:string;
@@ -23,7 +22,7 @@ class ReferralPatient extends Model{
     public doctorId!:number;
 }
 
-ReferralPatient.init({
+Patient.init({
     id:{
         type:DataTypes.INTEGER,
         autoIncrement:true,
@@ -97,7 +96,7 @@ ReferralPatient.init({
     doctorId:{
         type:DataTypes.INTEGER,
         references:{
-            model:Doctor,
+            model:"doctors",
             key:"id"
         },
         onDelete:"CASCADE",
@@ -106,7 +105,8 @@ ReferralPatient.init({
 },
 {
     sequelize,
-    tableName:"referralPatients"
+    tableName:"Patients",
+    modelName:"Patient"
 })
 
-export default ReferralPatient;
+export default Patient;
