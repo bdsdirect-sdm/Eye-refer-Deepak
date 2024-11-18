@@ -1,6 +1,6 @@
-import db from "./index"
 import sequelize from "../config/dbconnect";
 import { Model, DataTypes } from "sequelize";
+
 
 class Address extends Model{
     public addressTitle!: string;

@@ -14,10 +14,6 @@ const  db:DB = {
     Patient: Patient,
     Address:  Address,
     Otp:  Otp,
-    sequelize:sequelize,
-    Sequelize:Sequelize,
-    DataTypes:DataTypes,
-    Model:Model
 };
 
 
