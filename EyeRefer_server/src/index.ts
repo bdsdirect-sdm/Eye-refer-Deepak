@@ -5,7 +5,7 @@ import express from "express";
 import cors from "cors"
 import ErrorMiddleware from "./middleware/Error";
 
-const app = express()
+const app = express();
 
 app.use(cors({
     origin:"*",
