@@ -13,7 +13,6 @@ export const setSocket = (server:Server) =>{
     const io = new socket.Server(server,{
         cors: {
             origin: "*",
-            methods: ["GET", "POST"],
         }
     })
 

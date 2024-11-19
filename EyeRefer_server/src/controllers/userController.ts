@@ -1,15 +1,12 @@
-import Doctor from "../models/DoctorModel";
-import Address from "../models/Address";
-import { Request, Response, NextFunction } from "express";
-import { signupInterface,loginInterface } from "../interfaces/userInterfaces";
+import db from "../models";
+import { Request, Response } from "express";
 import { hassedPassword } from "../utils/hassedPassword";
-import { generateOTP } from "../utils/generateOtp";
 
 export const singUp = async ( req:any, res:Response) =>{
     try{
         let {fname, lname, password, email, doctorType} = req.body
 
-        const existUser = await Doctor.findOne({where:{email:email}})
+        const existUser = await db.Doctor.findOne({where:{email:email}})
         if(existUser){
             res.status(409).json({
                 success:false,
@@ -19,7 +16,7 @@ export const singUp = async ( req:any, res:Response) =>{
         }
         password = await hassedPassword(password);
 
-        const user = await Doctor.create({fname,lname,email,password,doctorType})
+        const user = await db.Doctor.create({fname,lname,email,password,doctorType})
 
         res.status(201).json({
             success:true,
