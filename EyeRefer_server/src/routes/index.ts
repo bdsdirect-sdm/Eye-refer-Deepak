@@ -9,17 +9,15 @@ interface RouteConfig {
 
 const allRoutes: Router = express.Router();
 
-// const defaultRoutes: RouteConfig[] = [
-//     {
-//         path: "/admin",
-//         routes: doctorRoutes
-//     }
-// ];
+const defaultRoutes: RouteConfig[] = [
+    {
+        path: "/doctor",
+        routes: doctorRoutes
+    }
+];
 
-// defaultRoutes.forEach((route) => {
-//     allRoutes.use(route.path, route.routes);
-// });
-
-allRoutes.use('/admin',doctorRoutes)
+defaultRoutes.forEach((route) => {
+    allRoutes.use(route.path, route.routes);
+});
 
 export default allRoutes;

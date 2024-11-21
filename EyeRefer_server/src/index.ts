@@ -12,9 +12,9 @@ app.use(cors({
     origin:"*",
 }))
 app.use(express.json());
-app.use(ErrorMiddleware)
-app.use("api/v1", allRoutes)
+app.use("/api/v1", allRoutes)
 
 app.get("/", (req : Request, res:any) => res.json({ success: true, message: "Server is Running"}));
 
+app.use(ErrorMiddleware)
 export default app;
