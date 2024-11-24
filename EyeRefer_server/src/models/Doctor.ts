@@ -4,17 +4,15 @@ import Address from "./Address";
 import Patient from "./Patient";
 
 class Doctor extends Model{
-public id!: number;
-public fname!: string;
-public lname!: string;
-public doctorType!: "OD" | "MD";
-public email!: string;
-public active!: boolean;
-public password!: string;
-public gender?: "Male" | "Female" | "Other";
-public phoneNo?: string;
-public profileImage?: string;
-
+  public id!: number;
+  public name!: string;
+  public doctorType!: "OD" | "MD";
+  public email!: string;
+  public active!: boolean;
+  public password!: string;
+  public gender?: "Male" | "Female" | "Other";
+  public phoneNo?: string;
+  public profileImage?: string;
 }
 
   Doctor.init(
@@ -25,13 +23,9 @@ public profileImage?: string;
         primaryKey: true,
         allowNull: false,
       },
-      fname: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      lname: {
-        type: DataTypes.STRING,
-        allowNull: true,
       },
       doctorType: {
         type: DataTypes.ENUM("OD", "MD"),
@@ -70,7 +64,7 @@ public profileImage?: string;
     }
   );
 
-  Doctor.hasOne(Address, { foreignKey: "doctorId" });
-  Doctor.hasMany(Patient, { foreignKey: "doctorId" });
+  Doctor.hasOne(Address, { foreignKey: "doctorId",as:"doctorId" });
+  Doctor.hasMany(Patient, { foreignKey: "doctorId", as:'doctorId' });
 
   export default Doctor;

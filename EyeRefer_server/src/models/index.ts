@@ -9,7 +9,7 @@ import Address from "./Address";
 interface DB{
     [key:string]:any
 }
-const  db:DB = {
+export const  db:DB = {
     Doctor:  Doctor,  
     Patient: Patient,
     Address:  Address,
@@ -17,4 +17,4 @@ const  db:DB = {
 };
 
 
-export default db;
+// export default db;
