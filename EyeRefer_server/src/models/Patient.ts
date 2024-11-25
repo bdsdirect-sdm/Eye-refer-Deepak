@@ -1,6 +1,8 @@
 
+import db from ".";
 import sequelize from "../config/dbconnect";
 import { Model,  DataTypes } from "sequelize";
+import Doctor from "./Doctor";
 
 class Patient extends Model{
     public DOB!: Date;
@@ -70,7 +72,7 @@ Patient.init({
         allowNull:true
     },
     referTo:{
-        type:DataTypes.NUMBER,
+        type:DataTypes.INTEGER,
         allowNull:false,
     },
     referAdress:{
@@ -93,14 +95,14 @@ Patient.init({
         type:DataTypes.STRING,
         allowNull:true
     },
-    doctorId:{
-        type:DataTypes.INTEGER,
-        references:{
-            model:"doctors",
-            key:"id"
-        },
-        onDelete:"CASCADE",
-    }
+    // doctorId:{
+    //     type:DataTypes.INTEGER,
+    //     references:{
+    //         model:"doctors",
+    //         key:"id"
+    //     },
+    //     onDelete:"CASCADE",
+    // }
 
 },
 {

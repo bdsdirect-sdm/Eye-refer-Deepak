@@ -13,7 +13,7 @@ const defaultRoutes: RouteConfig[] = [
     {
         path: "/doctor",
         routes: doctorRoutes
-    }
+    },
 ];
 
 defaultRoutes.forEach((route) => {
