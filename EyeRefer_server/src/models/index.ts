@@ -7,14 +7,22 @@ import Otp from "./Otp";
 import Address from "./Address";
 
 interface DB{
-    [key:string]:any
+    sequelize: Sequelize;
+    Sequelize: typeof Sequelize;
+    Doctor: typeof Doctor;
+    Patient: typeof Patient;
+    Address: typeof Address;
+    Otp: typeof Otp;
 }
-export const  db:DB = {
-    Doctor:  Doctor,  
-    Patient: Patient,
-    Address:  Address,
-    Otp:  Otp,
+
+ const  db:DB = {
+    sequelize,
+    Sequelize,
+    Doctor,
+    Patient,
+    Address,
+    Otp,
 };
 
 
-// export default db;
+export default db;

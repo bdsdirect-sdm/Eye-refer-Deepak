@@ -13,6 +13,10 @@ const defaultRoutes: RouteConfig[] = [
     {
         path: "/doctor",
         routes: doctorRoutes
+    },
+    {
+        path:"/doctor",
+        routes: doctorRoutes
     }
 ];
 

@@ -1,5 +1,6 @@
 import {  DataTypes, Model } from "sequelize";
-import sequelize  from "../config/dbconnect";
+import sequelize from "../config/dbconnect";
+import db from "./index";
 import Address from "./Address";
 import Patient from "./Patient";
 
@@ -64,7 +65,7 @@ class Doctor extends Model{
     }
   );
 
-  Doctor.hasOne(Address, { foreignKey: "doctorId",as:"doctorId" });
-  Doctor.hasMany(Patient, { foreignKey: "doctorId", as:'doctorId' });
+  Doctor.hasOne(Address, { foreignKey: "doctorId",onDelete:"CASCADE", onUpdate:"CASCADE"});
+  Doctor.hasMany(Patient, { foreignKey: "doctorId" ,onDelete:"CASCADE", onUpdate:"CASCADE"});
 
   export default Doctor;

@@ -5,6 +5,9 @@ export const constantValues = {
     },
     msg: {
         doctorAdd: "Doctor created successfully",
+        alreadyExist:"Email  already exist",
+        invalidCredentials:"Invalid credentials",
+        invalidOtp:"Invalid otp",
         loginSuccess: "Login successful",
         userGetAll: "Users fetched successfully",
         changePassword: "Password changed successfully",
@@ -14,7 +17,8 @@ export const constantValues = {
         getProfile: "Profile fetched successfully",
         profileFetch: "Profile fetched successfully",
         profileUpdate: "Profile updated successfully",
-        internalServerError  :"Internal server error"
+        internalServerError  :"Internal server error",
+        signUpMessage:"Your account would be activated after varification"
     },
 
     msgCode: {

@@ -1,5 +1,7 @@
+import db from ".";
 import sequelize from "../config/dbconnect";
 import { Model, DataTypes } from "sequelize";
+import Doctor from "./Doctor";
 
 
 class Address extends Model{
@@ -53,21 +55,11 @@ Address.init({
         type:DataTypes.STRING,
         allowNull:false
     },
-    doctorId:{
-        type:DataTypes.NUMBER,
-        allowNull:false,
-        references:{
-            model:"doctors",
-            key:"id"
-        },
-        onDelete:'CASCADE',
-        onUpdate:"CASCADE"
-        
-    }
 },{
     sequelize,
     tableName:"addresses",
     modelName:"Address"
 })
+
 
 export default  Address;

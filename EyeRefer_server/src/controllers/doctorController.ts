@@ -5,6 +5,7 @@ import { catchAsyncError } from "../middleware/catchAsyncError";
 import doctorService from "../services/doctor.service";
 import { defaultMaxListeners } from "events";
 import { ReturnResult } from "../interfaces/returnResultInterface";
+import otpService from "../services/otp.service";
 
 
 const doctorSignUp = catchAsyncError(async (req , res) =>{
@@ -12,4 +13,10 @@ const doctorSignUp = catchAsyncError(async (req , res) =>{
     res.status(201).json(result);
 })
 
-export default {doctorSignUp};
+const otpVarification = catchAsyncError(async(req,res) =>{
+    const result :ReturnResult = await otpService.otpVarification(req)
+
+    res.status(201).json(result);
+})
+
+export default {doctorSignUp,otpVarification};
