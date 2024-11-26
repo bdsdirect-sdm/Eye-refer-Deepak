@@ -20,12 +20,12 @@ interface ProvidersProps {
 const Providers : React.FC<ProvidersProps> = ({children}) => {
   return (
     <Router>
-    <Provider store={store}>
-        <QueryClientProvider client={queryClient}>
-            {children}
-            <ToastContainer/>
-        </QueryClientProvider> 
-    </Provider>
+      <Provider store={store}>
+          <QueryClientProvider client={queryClient}>
+              {children}
+              <ToastContainer/>
+          </QueryClientProvider> 
+      </Provider>
     </Router>
   )
 }

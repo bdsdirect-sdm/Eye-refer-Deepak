@@ -7,6 +7,7 @@ interface User {
     id: number;
     name: string;
     email: string;
+    doctorType:string;
   }
 
 const generateToken = async (user:User):Promise<string> =>{
@@ -20,10 +21,11 @@ const generateToken = async (user:User):Promise<string> =>{
       id: user.id,
       name: user.name,
       email: user.email,
+      doctorType:user.doctorType
     };
 
     // Generate the token
-    const token = jwt.sign(payload, secretKey, {
+    const token =  jwt.sign(payload, secretKey, {
       expiresIn: "1h",
     });
 

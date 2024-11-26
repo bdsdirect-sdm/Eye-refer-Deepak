@@ -12,6 +12,7 @@ export default {
         teritory: '#35C0E4',
         textColor:"#1C1C1C",
         backGround:"#ECF1F3",
+        formBackground:"#f2f2f2",
         headingColor:"#FFF9E4",
         customGray: {
           light: '#D1D5DB',

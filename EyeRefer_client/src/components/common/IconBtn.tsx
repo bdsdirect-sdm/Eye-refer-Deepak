@@ -17,7 +17,7 @@ const IconBtn:React.FC<iconBtn> = ({
     type={type}
     className={`flex items-center justify-center ${
           outline ? "border border-customGreen bg-transparent" : `${customClasses ? `${customClasses}`:" bg-yellow-300"}`
-        } cursor-pointer gap-x-2 rounded-md py-2 px-5 font-semibold ${customClasses}`}
+        } cursor-pointer gap-x-2 rounded-md py-3 px-5 font-semibold ${customClasses}`}
     >
         {
             children ? (<div className='flex items-center justify-center gap-2'>
