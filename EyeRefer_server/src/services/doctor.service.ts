@@ -6,6 +6,8 @@ import db from "../models";
 import { hassedPassword } from "../utils/hassedPassword";
 import { generateOTP } from "../utils/generateOtp";
 import { sendMail } from "../config/mailConnect";
+import bcrypt from "bcrypt"
+import tokenService from "./token.service";
 
 const doctorSignUp = async (req:Request):Promise<ReturnResult> =>{
     let {name , email, doctorType, password, acitve = false} = req.body;
@@ -41,4 +43,34 @@ const doctorSignUp = async (req:Request):Promise<ReturnResult> =>{
     return result;  
 }
 
-export default {doctorSignUp};
+
+// doctor login crediantials
+const doctorLogin = async (req:Request):Promise<ReturnResult> =>{
+    const {email, password}  = req.body;
+
+    let doctor = await db.Doctor.findOne({where:{email:email}});
+    if(!doctor){
+        throw new AppError(constantValues.msg.userNotExist,constantValues.msgCode.badRequest)
+    }
+
+    if(! await bcrypt.compare(password,doctor?.password)){
+        throw new AppError(constantValues.msg.incorrectPassword,constantValues.msgCode.badRequest)
+    }
+
+    const token = tokenService.generateToken({id:doctor?.id,name:doctor?.name,email:doctor?.email})
+
+    const result : ReturnResult =  {
+        success:constantValues.msgType.successStatus,
+        message:constantValues.msg.signUpMessage,
+        data:{
+            token,
+            doctor
+        }
+    }
+    return result
+}
+
+export default {
+    doctorSignUp,
+    doctorLogin
+};

@@ -7,6 +7,7 @@ const doctorRoutes = Router();
 doctorRoutes
     .post("/signup", doctorController.doctorSignUp)
     .post("/otpVarify",doctorController.otpVarification)
+    .post("/login",doctorController.doctorLogin)
     
     
 

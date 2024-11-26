@@ -8,6 +8,8 @@ export const constantValues = {
         alreadyExist:"Email  already exist",
         invalidCredentials:"Invalid credentials",
         invalidOtp:"Invalid otp",
+        userNotExist:"User not exist",
+        incorrectPassword:"Your password is incorrect",
         loginSuccess: "Login successful",
         userGetAll: "Users fetched successfully",
         changePassword: "Password changed successfully",

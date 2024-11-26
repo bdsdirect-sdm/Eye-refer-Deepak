@@ -13,10 +13,21 @@ const doctorSignUp = catchAsyncError(async (req , res) =>{
     res.status(201).json(result);
 })
 
+const doctorLogin = catchAsyncError(async (req , res) =>{
+    const result : ReturnResult = await doctorService.doctorLogin(req);
+    res.status(201).json(result);
+})
+
 const otpVarification = catchAsyncError(async(req,res) =>{
     const result :ReturnResult = await otpService.otpVarification(req)
 
     res.status(201).json(result);
 })
 
-export default {doctorSignUp,otpVarification};
+
+
+export default {
+    doctorSignUp,
+    otpVarification,
+    doctorLogin
+};
