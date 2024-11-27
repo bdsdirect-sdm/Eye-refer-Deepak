@@ -10,6 +10,8 @@ export const constantValues = {
         invalidOtp:"Invalid otp",
         userNotExist:"User not exist",
         incorrectPassword:"Your password is incorrect",
+        invalidToken:"Invalid  token",
+        expiredToken:"Some  thing went wrong please try again   ",
         loginSuccess: "Login successful",
         userGetAll: "Users fetched successfully",
         changePassword: "Password changed successfully",
