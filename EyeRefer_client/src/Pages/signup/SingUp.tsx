@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik , Field, ErrorMessage,Form } from "formik";
+import { Formik ,Form } from "formik";
 import { useMutation } from "@tanstack/react-query";
 import { signUpValidationSchema } from "../../validations/signValidation";
 import IconBtn from "../../components/common/IconBtn";
@@ -11,8 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 const SingUp:React.FC = () => {
     const navigate  = useNavigate();
-    const baseUrl = import.meta.env.VITE_API_URL
-    console.log("baseUrl", baseUrl)
+    // const baseUrl = import.meta.env.VITE_API_URL
     const { mutate } = useMutation({
         mutationKey: ["signup"],
         mutationFn: async (data: signupInterface) => {
@@ -31,9 +30,11 @@ const SingUp:React.FC = () => {
         }
     })
 
+    const doctorTypeOptions = [{value:"OD",label:"OD"},{value:"MD",label:"MD"}]
+
     return (
-        <div className=" text-center">
-            <div className=" text-textColor font-bold text-3xl mb-8">Sign Up</div>
+        <div className=" text-center w-[100%] p-10">
+            <div className=" text-textColor font-sans font-semibold text-4xl mb-8">Sign Up</div>
             <div className=" border-2 p-9 rounded-md bg-white flex flex-col gap-3 ">
             <Formik
                 initialValues={{
@@ -45,14 +46,15 @@ const SingUp:React.FC = () => {
                 confirmPassword: "",
             }}
             validationSchema={signUpValidationSchema}
-            onSubmit={ async(values: signupInterface) => {
-                console.log(values);
-                await mutate(values);
+            onSubmit={async(values: signupInterface) => {
+                console.log("dsdsdsdsdds")
+                console.log("valuesvalues",values);
+                mutate(values);
             }}
         >
             {( ) => (
             <Form>
-            <div className="flex flex-row gap-3">
+            <div className="flex xl:flex-row flex-col gap-3">
                 <InputFeild fieldName="fname" placeholder="Enter first name" isRequired={true} labelName="First name" type="text" />
                 
                 {/* last Name */}
@@ -63,7 +65,7 @@ const SingUp:React.FC = () => {
 
                 {/* select doctor type */}
 
-                <InputFeild fieldName="doctorType" placeholder="Select" isRequired={true} labelName="Doctor Type" type="select" options={[{value:"OD",label:"OD"},{value:"MD",label:"MD"}]}/>
+                <InputFeild fieldName="doctorType" placeholder="Select" isRequired={true} labelName="Doctor Type" type="select" options={doctorTypeOptions}/>
                 
 
                 <InputFeild fieldName="email" placeholder="Enter email" isRequired={true} labelName="Email" type="email"/>
@@ -74,7 +76,7 @@ const SingUp:React.FC = () => {
                 {/* confirm password */}
                 <InputFeild fieldName="confirmPassword" placeholder="Enter confirm password" isRequired={true} labelName="Confirm password" type="password"/>
 
-                <div className=" ">
+                <div className=" my-2 ">
                     <IconBtn text="Sign Up"
                         type="submit"
                         customClasses="w-full bg-teritory text-white"
@@ -82,12 +84,12 @@ const SingUp:React.FC = () => {
                         />
                 </div>
 
-                <div>
-                Already an existing user? 
-                <button type="button" className=" text-teritory" onClick={()=>{
+                <div className="text-lg text-gray-500 my-2  ">
+                Already an existing user? <span>{" "}</span> 
+                <button type="button" className=" text-teritory font-bold   " onClick={()=>{
                     navigate("/login")
                 }}>
-                    Login
+                  Login
                 </button>
                 </div>
             </Form>

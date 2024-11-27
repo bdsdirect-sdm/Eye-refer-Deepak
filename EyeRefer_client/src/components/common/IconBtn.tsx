@@ -10,6 +10,8 @@ const IconBtn:React.FC<iconBtn> = ({
     customClasses="",
     type = "button"
 }) => {
+
+    console.log("typetypetype",type)
   return (
     <button
     disabled={disabled}

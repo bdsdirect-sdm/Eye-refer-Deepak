@@ -1,12 +1,18 @@
 import { Field, ErrorMessage } from "formik"
 
+
+interface Option {
+    label: string;
+    value: string;
+  }
+
 interface inputField{
     labelName: string;
     fieldName:string;
     type: string;
     placeholder: string;
     isRequired:boolean;
-    options?:string[];
+    options?:Array<Option>;
 }
 
 const InputFeild = ({fieldName,placeholder,type,labelName,options =[],isRequired}:inputField) => {
@@ -35,7 +41,7 @@ const InputFeild = ({fieldName,placeholder,type,labelName,options =[],isRequired
             type={type}
             name={fieldName}
             placeholder={placeholder}
-            className="p-4 border-2 focus:ring-0 focus:border-black rounded-md"
+            className="p-4 border-2 focus:ring-0 hover:border-black rounded-md transition-all duration-200"
         />
         )}
 
